@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Asosiy.views import *
+from userapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +28,6 @@ urlpatterns = [
     path('product_update/', product_update),
     path('product/', products),
     path('stats/', stats),
+    path('logout/', logout1),
+
 ]

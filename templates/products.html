@@ -78,7 +78,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-header">Menu</li>
           <li class="nav-item">
-            <a href="stats" class="nav-link">
+            <a href="/stats/" class="nav-link">
               <i class="nav-icon far fa-circle text-warning"></i>
               <p>Statistics</p>
             </a>
@@ -113,9 +113,9 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="stats">Home</a></li>
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item active">Clients</li>
-                <li class="breadcrumb-item"><a href="logout">Logout</a></li>
+                <li class="breadcrumb-item"><a href="/logout/">Logout</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -138,18 +138,23 @@
                             <th scope="col" style="text-align: center;">Brendi</th>
                             <th scope="col" style="text-align: center;">Narxi</th>
                             <th scope="col" style="text-align: center;">Miqdori</th>
-                            <th scope="col" style="text-align: center;"></th>
+                            <th scope="col" style="text-align: center;">Olchov</th>
+                            <th scope="col" style="text-align: center;">Sana</th>
                         </tr>
                     </thead>
                     <tbody>
+                    {%for i in mahsulot%}
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Un</td>
-                            <td>Qozoq Oliy navi</td>
-                            <td>530000 so'm</td>
-                            <td>50</td>
+                            <th scope="row">{{i.id}}</th>
+                            <td>{{i.nom}}</td>
+                            <td>{{i.brend}}</td>
+                            <td>{{i.narx}}</td>
+                            <td>{{i.moqdor}}</td>
+                            <td>{{i.olchov}}</td>
+                            <td>{{i.sana}}</td>
                             <td><a href="#"><button type="submit" class="btn btn-danger" data-toggle="modal">Tahrirlash</button></a></td>
                         </tr>
+                    {%endfor%}
                     </tbody>
                 </table>
             </div>
@@ -168,19 +173,30 @@
           </div>
     
           <!-- Modal body -->
-          <form action="#" id="new-product-form" >
+          <form method="post" id="new-product-form" >{% csrf_token %}
             <div class="modal-body">
-              <label for="new-product-name">Nomi:</label>
-              <input type="text" name="pr_name" placeholder="Mahsulot nomi..." id="new-product-name" class="form-control" required>
+              <label for="nom">Nomi:</label>
+              <input type="text" name="nom" placeholder="Mahsulot nomi..." id="new-product-name" class="form-control" required>
               <br>
-              <label for="new-product-name">Brend:</label>
-              <input type="text" name="pr_brand" placeholder="Mahsulot brendi..." id="new-product-brend" class="form-control" required>
+              <label for="brend">Brend:</label>
+              <input type="text" name="brend" placeholder="Mahsulot brendi..." id="new-product-brend" class="form-control" required>
               <br>
-              <label for="new-product-name">Narxi:</label>
-              <input type="text" name="pr_price" placeholder="Maxsulot narxi..." id="new-product-price" class="form-control" required>
+              <label for="narx">Narxi:</label>
+              <input type="text" name="narx" placeholder="Maxsulot narxi..." id="new-product-price" class="form-control" required>
               <br>
-              <label for="new-product-name">Miqdori:</label>
-              <input type="number" name="pr_amount" placeholder="Mahsulot miqdori..." id="new-product-amount" class="form-control" required>
+              <label for="miqdor">Miqdori:</label>
+              <input type="number" name="miqdor" placeholder="Mahsulot miqdori..." id="new-product-amount" class="form-control" required>
+              <br>
+                <label for="olchov">Olchovi:</label>
+              <select name="olchov">
+                  <option value="kg">kg</option>
+                  <option value="dona">dona</option>
+                  <option value="qop">qop</option>
+                  <option value="blok">blok</option>
+              </select>
+                <br>
+              <label for="sana">Sana:</label>
+              <input type="date" name="sana" placeholder="Sanasi..." id="new-product-time" class="form-control" required>
               <br>
             </div>
     
