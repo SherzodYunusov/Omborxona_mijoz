@@ -56,24 +56,23 @@
           <!-- Modal Header -->
 
           <!-- Modal body -->
-          <form action="#" id="edit-product-form">
+          <form method="post" action="/product_edit/{{mahsulot.id}}/"> {%csrf_token%}
               <label for="edit-product-name">Mahsulot nomi:</label>
-              <input type="text" name="name" value="{{product.name}}" placeholder="Mahsulot nomi..." id="edit-product-name" class="form-control" required>
-                <br>
-              <label for="edit-product-name">Brend nomi:</label>
-              <input type="text" name="brand_name" value="{{product.brand_name}}" placeholder="Brend nomi..." id="edit-product-brend" class="form-control" required>
+              <input type="text" name="nom" value="{{mahsulot.nom}}" placeholder="Mahsulot nomi..." id="edit-product-name" class="form-control" required>
               <br>
-              <label for="edit-product-name">Mahsulot narxi:</label>
-              <input type="number" name="price" value="{{product.price}}" placeholder="Mahsulot narxi..." id="edit-product-price" class="form-control" required>
+              <label for="edit-product-brend">Brend nomi:</label>
+              <input type="text" name="brend" value="{{mahsulot.brend}}" placeholder="Brend nomi..." id="edit-product-brend" class="form-control" required>
               <br>
-              <label for="edit-product-name">Dona qoldi:</label>
-              <input type="number" name="amount" value="{{product.remainder}}" placeholder="Dona qoldi..." id="edit-product-amount" class="form-control" required>
+              <label for="edit-product-price">Mahsulot narxi:</label>
+              <input type="number" name="narx" value="{{mahsulot.narx}}" placeholder="Mahsulot narxi..." id="edit-product-price" class="form-control" required>
+              <br>
+              <label for="edit-product-amount">Dona qoldi:</label>
+              <input type="number" name="miqdor" value="{{mahsulot.miqdor}}" placeholder="Dona qoldi..." id="edit-product-amount" class="form-control" required>
               <br>
 
           <!-- Modal footer -->
             <button type="submit" class="btn btn-success">Yangilash</button>
-            <a href="/goods/"><button type="button" class="btn btn-danger" data-dismiss="modal">Yopish</button></a>
-
+            <a href="/product/"><button type="button" class="btn btn-danger" data-dismiss="modal">Yopish</button></a>
       </form>
 
 

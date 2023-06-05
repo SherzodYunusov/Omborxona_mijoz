@@ -29,5 +29,9 @@ urlpatterns = [
     path('product/', products),
     path('stats/', stats),
     path('logout/', logout1),
+    path('product_delete/<int:pk>/', MahsulotOchirView.as_view()),
+    path('product_edit/<int:pk>/', MahsulotEditView.as_view()),
+    path('client_edit/<int:pk>/', MijozEditView.as_view()),
+    path('client_delete/<int:pk>/', MijozDeleteView.as_view()),
 
 ]

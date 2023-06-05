@@ -144,17 +144,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for i in statistika %}
                         <tr>
                             <th scope="row">1</th>
-                            <td>Product nomi, brend nomi</td>
-                            <td>Client ismi, do'koni nomi</td>
-                            <td>2022.06.13</td>
-                            <td>30</td>
-                            <td>1260000 so'm</td>
-                            <td>560000 so'm</td>
-                            <td>700000 so'm</td>
+                            <td>{{i.mahsulot.nom}}, {{i.mahsulot.brend}}</td>
+                            <td>{{i.mijoz.ism}}, {{i.mijoz.nom}}</td>
+                            <td>{{i.sana}}</td>
+                            <td>{{i.miqdor}}</td>
+                            <td>{{i.umumiy_summa}}</td>
+                            <td>{{i.tolandi}}</td>
+                            <td>{{i.nasiya}}</td>
                             <td><a href="#"><button type="submit" class="btn btn-danger" data-toggle="modal">Tahrirlash</button></a></td>
                         </tr>
+                        {% endfor %}
+
                     </tbody>
                 </table>
             </div>

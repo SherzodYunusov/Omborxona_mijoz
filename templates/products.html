@@ -149,10 +149,11 @@
                             <td>{{i.nom}}</td>
                             <td>{{i.brend}}</td>
                             <td>{{i.narx}}</td>
-                            <td>{{i.moqdor}}</td>
+                            <td>{{i.miqdor}}</td>
                             <td>{{i.olchov}}</td>
                             <td>{{i.sana}}</td>
-                            <td><a href="#"><button type="submit" class="btn btn-danger" data-toggle="modal">Tahrirlash</button></a></td>
+                            <td><a href="/product_edit/{{i.id}}/"><button type="submit" class="btn btn-warning" data-toggle="modal">Tahrirlash</button></a></td>
+                            <td><a href="/product_delete/{{i.id}}/"><button type="submit" class="btn btn-danger" data-toggle="modal">Ochirish</button></a></td>
                         </tr>
                     {%endfor%}
                     </tbody>
